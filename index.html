@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class='container'>
+        <header>
+            <h1>currency</h1>
+            <ul>
+                <li></li>
+            </ul>
+        </header>
+        <main>
+            <div class="BarChart">
+                <div class="BarChart-fullBar u-currency-usd">
+                    <div class="BarChart-bar" onClick="thisModal(this);" style="height: 27.41%;">
+                        <p>USD $</p>
+                        <div class='modal'>
+                            <p>US dollar</p>
+                            <p>1 USD == 1 USD</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="BarChart-fullBar u-currency-qar">
+                    <div class="BarChart-bar" onClick="thisModal(this);" style="height:100%;">
+                        <p>QAR &#65020;</p>
+                        <div class='modal'>
+                            <p>US dollar</p>
+                            <p>1 USD == 1 USD</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="BarChart-fullBar u-currency-gel">
+                    <div class="BarChart-bar " onClick="thisModal(this);" style="height:85.26%;">
+                        <p>GEL &#8382;</p>
+                        <div class='modal'>
+                            <p>US dollar</p>
+                            <p>1 USD == 1 USD</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="BarChart-fullBar u-currency-eur ">
+                    <div class="BarChart-bar" onClick="thisModal(this);" style=" height:23.39%;">
+                        <p>EUR &euro;</p>
+                        <div class='modal'>
+                            <p>US dollar</p>
+                            <p>1 USD == 1 USD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>footer</p>
+        </footer>
+    </div>
+    <script src="js/main.js">
+    </script>
+</body>
+
+</html>

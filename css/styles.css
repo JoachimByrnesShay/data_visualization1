@@ -1,0 +1,196 @@
+:root {
+  --color1: rgb(51, 66, 87);
+  --color2: rgb(84, 140, 168);
+  --color3: rgb(51, 66, 50);
+  --color4: rgb(51, 66, 70);
+  --color5: rgb(51, 66, 100);
+  --color6: #e7eaf6;
+  --color7: #a2a8d3;
+  --color8: #38598b;
+  --color9: #113f67;
+  --EUR-media-width: 23.39%;
+  --USD-media-width: 27.41%;
+  --GEL-media-width: 85.26%;
+  --QAR-media-width: 100%;
+  --color20: rgb(27,79,79);
+  --color21: rgb(92,99,149);
+}
+
+main, footer, p, body, h1, h2, h3, div, header, ul, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: white;
+  background: var(--color9);
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+h1 {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+header {
+  height: 5em;
+  background: var(--color8);
+  display: flex;
+}
+
+header > ul {
+  list-style-type: none;
+}
+
+main {
+  height: 100%;
+}
+
+.BarChart {
+  display: flex;
+  color: green;
+  justify-content: space-around;
+  align-content: flex-end;
+  height: 100%;
+  background: var(--color2);
+}
+
+.BarChart-fullBar {
+  height: 100%;
+  position: relative;
+}
+
+.BarChart-bar {
+  border: 1px solid black;
+  color: white;
+  font-weight: 800;
+  width: 7em;
+  text-align: center;
+  align-self: flex-end;
+}
+
+.BarChart .BarChart-fullBar:nth-of-type(even) .BarChart-bar {
+  background: var(--color20);
+}
+
+.BarChart .BarChart-fullBar:nth-of-type(odd) .BarChart-bar {
+  background: var(--color21);
+}
+
+footer {
+  height: 3em;
+  background: var(--color1);
+  color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  height: calc(100vh - 8em);
+}
+
+@keyframes byemodal {
+  0% {
+    background: white;
+  }
+
+  50% {
+    left: 15em;
+    transform: rotate3d(1, 1, 1, 45deg);
+  }
+
+  100% {
+    display: none;
+    left: 50em;
+    transform: rotate3d(1, 2, 1, 95deg);
+  }
+}
+
+.BarChart-bar:not(:hover) .modal {
+  animation: byemodal 3s normal forwards;
+  animation-iteration-count: 1;
+}
+
+.modal {
+  display: none;
+  background: white;
+  background-color: #eee;
+  background-color: var(--color4);
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 2em;
+  position: absolute;
+  left: -27%;
+  top: 10em;
+  height: 0;
+  width: 0;
+  padding: 6px 8px 8px;
+  text-align: center;
+  z-index: 50;
+  margin: 0;
+  overflow-x: hidden;
+  color: black;
+}
+
+.showModal {
+  display: block;
+  width: 150px;
+  height: 150px;
+}
+
+@media only screen and (max-width:  950px) {
+  html {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .BarChart {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+  }
+
+  .BarChart-fullBar {
+    width: 100%;
+  }
+
+  .BarChart-bar {
+    height: 5em;
+    text-align: justify;
+    justify-self: center;
+  }
+
+  .modal {
+    top: -25%;
+    left: 5em;
+  }
+
+  .u-currency-eur .BarChart-bar {
+    width: var(--EUR-media-width);
+    height: 7em !important;
+    max-height: 100%;
+  }
+
+  .u-currency-usd .BarChart-bar {
+    width: var(--USD-media-width);
+    height: 7em !important;
+    max-height: 100%;
+  }
+
+  .u-currency-qar .BarChart-bar {
+    width: var(--QAR-media-width);
+    height: 7em !important;
+    max-height: 100%;
+  }
+
+  .u-currency-gel .BarChart-bar {
+    width: var(--GEL-media-width);
+    height: 7em !important;
+    max-height: 100%;
+  }
+}
