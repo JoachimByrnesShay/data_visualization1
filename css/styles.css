@@ -1,12 +1,13 @@
 :root {
   --color1: rgb(51, 66, 87);
-  --color2: rgb(84, 140, 168);
+  --color2: rgb(94, 180, 170);
   --color3: rgb(51, 66, 50);
   --color4: rgb(51, 66, 70);
   --color5: rgb(51, 66, 100);
   --color6: #e7eaf6;
   --color7: #a2a8d3;
   --color8: #38598b;
+  --color8b: #7e5ecb;
   --color9: #113f67;
   --EUR-media-width: 23.39%;
   --USD-media-width: 27.41%;
@@ -14,18 +15,30 @@
   --QAR-media-width: 100%;
   --color20: rgb(27,79,79);
   --color21: rgb(92,99,149);
+  --color41: rgb(38, 50, 56);
+  --color42: rgb(55, 71, 79);
+  --color43: rgb(69, 90, 100);
+  --color44: rgb(84, 110, 122);
+  --color45: rgb(96, 125, 139);
+  --color46: rgb(120, 144, 156);
+  --color47: rgb(144, 164, 174);
+  --color48: rgb(176, 190, 197);
+  --color49: rgb(207, 216, 220);
+  --color50: rgb(236, 239, 241);
 }
 
 main, footer, p, body, h1, h2, h3, div, header, ul, html {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   color: white;
-  background: var(--color9);
+  background: var(--color45);
+  background: #7CB9E8;
+  background: #cddeee;
   height: 100vh;
-  box-sizing: border-box;
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
   overflow-x: hidden;
@@ -34,6 +47,8 @@ body {
 
 h1 {
   font-weight: 400;
+  color: black;
+  color: beige;
   text-transform: uppercase;
   padding-top: .5em;
   padding-left: .5em;
@@ -42,6 +57,11 @@ h1 {
 header {
   height: 5em;
   background: var(--color8);
+  background: grey;
+  background: #007FFF;
+  background: #005f69;
+  /* background: #eeddca;
+ */
   display: flex;
 }
 
@@ -55,11 +75,11 @@ main {
 
 .BarChart {
   display: flex;
-  color: green;
   justify-content: space-around;
   align-content: flex-end;
   height: 100%;
-  background: var(--color2);
+  background: var(--color50);
+  border: 1px solid black;
 }
 
 .BarChart-fullBar {
@@ -69,20 +89,29 @@ main {
 }
 
 .BarChart-bar {
-  border: 1px solid black;
   color: white;
+  padding-top: .4em;
   font-weight: 800;
   width: 7em;
   text-align: center;
   align-self: flex-end;
+  border-radius: .5em .5em 0 0;
 }
 
 .BarChart .BarChart-fullBar:nth-of-type(even) .BarChart-bar {
-  background: var(--color20);
+  background: var(--color47);
+  background: royalblue;
+  background: #eeddca;
+  background: #6F4E37;
+  background: #aeddcd;
+  border-width: 1px 0 1px 0;
+  border-style: solid black;
+  color: black;
 }
 
 .BarChart .BarChart-fullBar:nth-of-type(odd) .BarChart-bar {
   background: var(--color21);
+  background: #9f4b8a;
 }
 
 footer {
@@ -99,23 +128,38 @@ footer {
 
 @keyframes byemodal {
   0% {
-    background: white;
-  }
+    background: silver;
+  }/*  }
+10% {
+  background: darkslategray;
+}
 
-  50% {
-    left: 15em;
-    transform: rotate3d(1, 1, 1, 45deg);
-  }
+20% {
+  background: purple;
+}
+
+50% {
+  left: 35em; *//* transform: rotate3d(1, 1, 1, 45deg);
+ *//*   transform: rotate(180deg);
+}
+
+ 
 
   100% {
+    transform: rotate(360deg);
     display: none;
-    left: 50em;
-    transform: rotate3d(1, 2, 1, 95deg);
+    /*  left: 50em;
+    transform: rotate3d(1, 2, 1, 95deg); */
+
+  100% {
+    transform: rotate(360deg);
+    height: 7%;
+    width: 10%;
   }
 }
 
 .BarChart-bar:not(:hover) .modal {
-  animation: byemodal 3s normal forwards;
+  animation: byemodal 1s normal forwards;
   animation-iteration-count: 1;
 }
 
@@ -125,10 +169,10 @@ footer {
   background-color: #eee;
   background-color: var(--color4);
   background-color: lightblue;
-  border: 1px solid black;
-  border-radius: 2em;
+  background-color: black;
+  border-radius: .6em;
   position: absolute;
-  left: -27%;
+  left: -18%;
   top: 10em;
   height: 0;
   width: 0;
@@ -138,6 +182,7 @@ footer {
   margin: 0;
   overflow-x: hidden;
   color: black;
+  color: white;
 }
 
 .showModal {
@@ -164,8 +209,11 @@ footer {
 
   .BarChart-bar {
     height: 5em;
+    padding-top: 2em;
+    padding-left: 1em;
     text-align: justify;
     align-self: center;
+    border-radius: 0 .3em .3em 0;
   }
 
   .modal {

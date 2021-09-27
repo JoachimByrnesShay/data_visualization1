@@ -28,3 +28,7 @@ function thisModal(elem) {
     });
 
 }
+
+// window.onresize = () => {
+        //     alert('hi')
+        // }
