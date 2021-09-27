@@ -35,6 +35,8 @@ body {
 h1 {
   font-weight: 400;
   text-transform: uppercase;
+  padding-top: .5em;
+  padding-left: .5em;
 }
 
 header {
@@ -63,6 +65,7 @@ main {
 .BarChart-fullBar {
   height: 100%;
   position: relative;
+  display: flex;
 }
 
 .BarChart-bar {
@@ -162,11 +165,11 @@ footer {
   .BarChart-bar {
     height: 5em;
     text-align: justify;
-    justify-self: center;
+    align-self: center;
   }
 
   .modal {
-    top: -25%;
+    top: 10%;
     left: 5em;
   }
 

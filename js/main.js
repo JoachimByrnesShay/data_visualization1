@@ -18,9 +18,13 @@ function thisModal(elem) {
     modal.addEventListener('animationcancel', (e) => {
 
         modal.classList.remove('showModal')
+    });
+    // modal.setAnimationListener(null);
+    // // })
+    modal.addAnimationListener('animationstart', (e) => {
+        e.preventDefault();
 
-
-    })
-
+        e.stopImmediatePropagation();
+    });
 
 }
