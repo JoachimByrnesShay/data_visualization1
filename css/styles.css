@@ -11,6 +11,7 @@
   --color9: #113f67;
   --EUR-media-width: 23.39%;
   --USD-media-width: 27.41%;
+  --BGN-media-width: 45.35 %;
   --GEL-media-width: 85.26%;
   --QAR-media-width: 100%;
   --color20: rgb(27,79,79);
@@ -47,11 +48,13 @@ body {
 
 h1 {
   font-weight: 400;
-  font-size: 37px;
+  font-size: 26px;
   color: black;
   color: beige;
   text-transform: uppercase;
-  padding-top: .35em;
+  /* padding-top: .9em;
+ */
+  align-self: center;
   padding-left: .5em;
 }
 
@@ -64,10 +67,46 @@ header {
   /* background: #eeddca;
  */
   display: flex;
+  justify-content: space-between;
+  padding-right: 0em;
 }
 
 header > ul {
   list-style-type: none;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+}
+
+header ul li {
+  width: 4em;
+  height: 100%;
+  background: blue;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1.1em;
+}
+
+header ul li:nth-of-type(1) {
+  background: green;
+}
+
+header ul li:nth-of-type(2) {
+  background: pink;
+  color: black;
+}
+
+header ul li:nth-of-type(3) {
+  background: purple;
+}
+
+header ul li:nth-of-type(1) {
+  background: green;
 }
 
 main {
@@ -91,6 +130,48 @@ main {
   height: 100%;
   position: relative;
   display: flex;
+}
+
+@keyframes blinkingDiv {
+  0% {
+    background-color: lightblue;
+  }
+
+  20% {
+    background-color: white;
+  }
+
+  30% {
+    background: purple;
+  }
+
+  50% {
+    background: lightblue;
+  }
+
+  70% {
+    background: lightblue;
+  }
+
+  90% {
+    background: white;
+  }
+
+  90% {
+    background: purple;
+  }
+
+  100% {
+    background: green;
+  }
+}
+
+.blinkDiv {
+  animation: blinkingDiv 1000ms forwards;
+}
+
+.noBlinkDiv {
+  animation-name: none;
 }
 
 .BarChart-bar {
@@ -141,27 +222,7 @@ footer {
   0% {
     background: #28282b;
     box-shadow: 5px 5px 5px grey;
-  }/*  }
-10% {
-  background: darkslategray;
-}
-
-20% {
-  background: purple;
-}
-
-50% {
-  left: 35em; *//* transform: rotate3d(1, 1, 1, 45deg);
- *//*   transform: rotate(180deg);
-}
-
- 
-
-  100% {
-    transform: rotate(360deg);
-    display: none;
-    /*  left: 50em;
-    transform: rotate3d(1, 2, 1, 95deg); */
+  }
 
   100% {
     transform: rotate(380deg);
@@ -186,8 +247,8 @@ footer {
   background-color: #28282b;
   border-radius: .6em;
   position: absolute;
-  left: -18%;
-  top: 10em;
+  left: -50%;
+  top: 12em;
   height: 0;
   width: 0;
   padding: 6px 0 8px;
@@ -198,13 +259,13 @@ footer {
   color: black;
   color: white;
   padding-top: 2em;
-  box-shadow: 2px 6px 1px black;
+  box-shadow: 2px 3px 1px black;
 }
 
 .showModal {
   display: block;
-  width: 170px;
-  height: 110px;
+  width: 220px;
+  height: 140px;
 }
 
 @media only screen and (max-width:  950px) {
@@ -226,7 +287,7 @@ footer {
   .BarChart-bar {
     height: 5em;
     padding-top: 2em;
-    padding-left: 1em;
+    padding-left: .5 em;
     text-align: justify;
     align-self: center;
     border-radius: 0 .3em .3em 0;
@@ -237,12 +298,18 @@ footer {
   }
 
   .modal {
-    top: 20%;
+    top: 5%;
     left: 7em;
   }
 
   .u-currency-eur .BarChart-bar {
     width: var(--EUR-media-width);
+    height: 7em !important;
+    max-height: 100%;
+  }
+
+  .u-currency-bgn .BarChart-bar {
+    width: var(--BGN-media-width);
     height: 7em !important;
     max-height: 100%;
   }
