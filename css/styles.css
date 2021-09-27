@@ -79,7 +79,11 @@ main {
   align-content: flex-end;
   height: 100%;
   background: var(--color50);
-  border: 1px solid black;
+  border: .5em solid black;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(227,222,200,1) 35%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  background: linear-gradient(to bottom, #ebf1f6 0%,#abd3ee 50%,#2ec3eb 51%,#d5ebfb 100%);
 }
 
 .BarChart-fullBar {
@@ -96,6 +100,9 @@ main {
   text-align: center;
   align-self: flex-end;
   border-radius: .5em .5em 0 0;
+  border-top: 7px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
 .BarChart .BarChart-fullBar:nth-of-type(even) .BarChart-bar {
@@ -104,8 +111,8 @@ main {
   background: #eeddca;
   background: #6F4E37;
   background: #aeddcd;
-  border-width: 1px 0 1px 0;
-  border-style: solid black;
+  /* border-width: 1px 0 1px 0;border-style: solid black;
+ */
   color: black;
 }
 
@@ -214,6 +221,10 @@ footer {
     text-align: justify;
     align-self: center;
     border-radius: 0 .3em .3em 0;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 7px solid black;
+    border-left: none;
   }
 
   .modal {
