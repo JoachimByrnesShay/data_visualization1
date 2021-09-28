@@ -157,8 +157,9 @@
   }
 
   .ChartContent-barChart {
-    height: 80% !important;
-    padding-top: 7%;
+    height: 70% !important;
+    padding-top: 5%;
+    padding-bottom: 5%;
     padding-left: 5%;
     text-align: justify;
     justify-self: flex-end;
@@ -168,7 +169,7 @@
     border-bottom: 2px solid black;
     border-right: 7px solid black;
     border-left: none;
-    font-size: 1em;
+    font-size: 95%;
   }
 
   .Modal {
