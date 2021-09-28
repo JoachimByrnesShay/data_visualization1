@@ -1,13 +1,15 @@
-### data visualization project
+### Data Visualization Project
 
+### by Joachim Byrnes-Shay
 
 ### 9/28/21
 
 
-### comparison of world currency values using barcharts created from api.exhangerate.host data
+### A comparison of world currency values using barcharts created from api.exchangerate.host data
 
+### This is a mockup done nearly all in html and css with manually hardcoded currency data taken directly trom exchangerate.host.  Onclick events call javascript function present in main.js.
 
-### credit to https://api.exchangerate.host/' for data including symbols and conversion rates
+### Credit due to https://api.exchangerate.host/' for data including all standardized currency codes and conversion rates.
 
-### docs for api are found here:  https://exchangerate.host/#/docs
+### Docs for api are found here:  https://exchangerate.host/#/docs
 
