@@ -1,13 +1,15 @@
-console.log('main.js successfully loads');
+/** show modal, call with onClick in html **/
+function activateModal(elem) {
+    let modal = elem.querySelector('.Modal');
 
-function thisModal(elem) {
-    console.log('thisModal function called');
-    let modal = elem.querySelector('.modal');
-    modal.classList.add('showModal');
+    modal.classList.add('is-displayed');
+
     modal.addEventListener("animationend", () => {
-        modal.classList.remove('showModal');
+        modal.classList.remove('is-displayed');
     });
+    /** smoothens user experience if user moves cursor back to bar too quickly**/
     modal.addEventListener('animationcancel', () => {
-        modal.classList.remove('showModal');
+        modal.classList.remove('is-displayed');
     });
+
 }

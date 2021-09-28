@@ -1,31 +1,14 @@
 :root {
-  --color1: rgb(51, 66, 87);
-  --color2: rgb(94, 180, 170);
-  --color3: rgb(51, 66, 50);
-  --color4: rgb(51, 66, 70);
-  --color5: rgb(51, 66, 100);
-  --color6: #e7eaf6;
-  --color7: #a2a8d3;
-  --color8: #38598b;
-  --color8b: #7e5ecb;
-  --color9: #113f67;
-  --EUR-media-width: 23.39%;
-  --USD-media-width: 27.41%;
-  --BGN-media-width: 45.35 %;
-  --GEL-media-width: 85.26%;
-  --QAR-media-width: 100%;
-  --color20: rgb(27,79,79);
-  --color21: rgb(92,99,149);
-  --color41: rgb(38, 50, 56);
-  --color42: rgb(55, 71, 79);
-  --color43: rgb(69, 90, 100);
-  --color44: rgb(84, 110, 122);
-  --color45: rgb(96, 125, 139);
-  --color46: rgb(120, 144, 156);
-  --color47: rgb(144, 164, 174);
-  --color48: rgb(176, 190, 197);
-  --color49: rgb(207, 216, 220);
-  --color50: rgb(236, 239, 241);
+  --Page-backgroundColor: #cddeee;
+  --Header-backgroundColor: #38598b;
+  --Footer-backgroundColor: rgb(51, 66, 87);
+  --ChartContent-barChart--odd-backgroundColor: #9f4b7a;
+  --ChartContent-barChart--even-backgroundColor: #aeddcd;
+  --EUR--smallMediaWidth: 23.39%;
+  --USD--smallMediaWidth: 27.41%;
+  --BGN--smallMediaWidth: 45.35%;
+  --GEL--smallMediaWidth: 85.26%;
+  --QAR--smallMediaWidth: 100%;
 }
 
 main, footer, p, body, h1, h2, h3, div, header, ul, html {
@@ -34,11 +17,11 @@ main, footer, p, body, h1, h2, h3, div, header, ul, html {
   box-sizing: border-box;
 }
 
-body {
-  color: white;
-  background: var(--color45);
-  background: #7CB9E8;
-  background: #cddeee;
+/* 
+ */
+
+.Page {
+  background: var(--Page-backgroundColor);
   height: 100vh;
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
@@ -46,135 +29,45 @@ body {
   overflow-y: hidden;
 }
 
-h1 {
-  font-weight: 400;
-  font-size: 26px;
-  color: black;
-  color: beige;
-  text-transform: uppercase;
-  /* padding-top: .9em;
- */
-  align-self: center;
-  padding-left: .5em;
+.Page-container {
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
 }
 
-header {
+.Header {
   height: 5em;
-  background: var(--color8);
-  background: grey;
-  background: #007FFF;
-  background: #005f69;
-  /* background: #eeddca;
- */
+  background: var(--Header-backgroundColor);
   display: flex;
   justify-content: space-between;
   padding-right: 0em;
 }
 
-header > ul {
-  list-style-type: none;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-}
-
-header ul li {
-  width: 4em;
-  height: 100%;
-  background: blue;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.Header-title {
+  font-weight: 400;
+  font-size: 26px;
+  color: beige;
   text-transform: uppercase;
-  font-weight: 900;
-  font-size: 1.1em;
+  align-self: center;
+  padding-left: .5em;
 }
 
-header ul li:nth-of-type(1) {
-  background: green;
-}
-
-header ul li:nth-of-type(2) {
-  background: pink;
-  color: black;
-}
-
-header ul li:nth-of-type(3) {
-  background: purple;
-}
-
-header ul li:nth-of-type(1) {
-  background: green;
-}
-
-main {
-  height: 100%;
-}
-
-.BarChart {
+.ChartContent {
   display: flex;
   justify-content: space-around;
   align-content: flex-end;
-  height: 100%;
-  background: var(--color50);
+  height: calc(100vh - 8em);
   border: .5em solid black;
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(227,222,200,1) 35%, rgba(0,212,255,1) 100%);
-  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
   background: linear-gradient(to bottom, #ebf1f6 0%,#abd3ee 50%,#2ec3eb 51%,#d5ebfb 100%);
 }
 
-.BarChart-fullBar {
+.ChartContent-container {
   height: 100%;
   position: relative;
   display: flex;
 }
 
-@keyframes blinkingDiv {
-  0% {
-    background-color: lightblue;
-  }
-
-  20% {
-    background-color: white;
-  }
-
-  30% {
-    background: purple;
-  }
-
-  50% {
-    background: lightblue;
-  }
-
-  70% {
-    background: lightblue;
-  }
-
-  90% {
-    background: white;
-  }
-
-  90% {
-    background: purple;
-  }
-
-  100% {
-    background: green;
-  }
-}
-
-.blinkDiv {
-  animation: blinkingDiv 1000ms forwards;
-}
-
-.noBlinkDiv {
-  animation-name: none;
-}
-
-.BarChart-bar {
+.ChartContent-barChart {
   color: white;
   padding-top: .4em;
   font-weight: 800;
@@ -188,37 +81,24 @@ main {
   box-shadow: 5px 1px 5px grey;
 }
 
-.BarChart .BarChart-fullBar:nth-of-type(even) .BarChart-bar {
-  background: var(--color47);
-  background: royalblue;
-  background: #eeddca;
-  background: #6F4E37;
-  background: #aeddcd;
-  /* border-width: 1px 0 1px 0;border-style: solid black;
- */
+.ChartContent-container:nth-of-type(even) .ChartContent-barChart {
+  background: var(--ChartContent-barChart--even-backgroundColor);
   color: black;
 }
 
-.BarChart .BarChart-fullBar:nth-of-type(odd) .BarChart-bar {
-  background: var(--color21);
-  background: #9f4b8a;
+.ChartContent-container:nth-of-type(odd) .ChartContent-barChart {
+  background: var(--ChartContent-barChart--odd-backgroundColor);
 }
 
-footer {
+.Footer {
   height: 3em;
   padding-left: .3em;
   padding-top: .6em;
-  background: var(--color1);
+  background: var(--Footer-backgroundColor);
   color: white;
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
-  height: calc(100vh - 8em);
-}
-
-@keyframes byemodal {
+@keyframes disappearModal {
   0% {
     background: #28282b;
     box-shadow: 5px 5px 5px grey;
@@ -232,25 +112,20 @@ footer {
   }
 }
 
-.BarChart-bar:not(:hover) .modal {
-  animation: byemodal 800ms normal forwards;
+.ChartContent-barChart:not(:hover) .Modal {
+  animation: disappearModal 800ms normal forwards;
   animation-iteration-count: 1;
 }
 
-.modal {
+.Modal {
   display: none;
-  background: white;
-  background-color: #eee;
-  background-color: var(--color4);
-  background-color: lightblue;
-  background-color: black;
   background-color: #28282b;
   border-radius: .6em;
   position: absolute;
   left: -50%;
   top: 12em;
-  height: 0;
-  width: 0;
+  width: 220px;
+  height: 140px;
   padding: 6px 0 8px;
   text-align: center;
   z-index: 50;
@@ -262,10 +137,8 @@ footer {
   box-shadow: 2px 3px 1px black;
 }
 
-.showModal {
+.Modal.is-displayed {
   display: block;
-  width: 220px;
-  height: 140px;
 }
 
 @media only screen and (max-width:  950px) {
@@ -274,20 +147,19 @@ footer {
     overflow-y: hidden;
   }
 
-  .BarChart {
+  .ChartContent {
     flex-direction: column;
     justify-content: space-around;
-    height: 100%;
   }
 
-  .BarChart-fullBar {
+  .ChartContent-container {
     width: 100%;
   }
 
-  .BarChart-bar {
+  .ChartContent-barChart {
     height: 5em;
     padding-top: 2em;
-    padding-left: .5 em;
+    padding-left: .5em;
     text-align: justify;
     align-self: center;
     border-radius: 0 .3em .3em 0;
@@ -297,38 +169,33 @@ footer {
     border-left: none;
   }
 
-  .modal {
+  .Modal {
     top: 5%;
     left: 7em;
   }
 
-  .u-currency-eur .BarChart-bar {
-    width: var(--EUR-media-width);
+  .ChartContent-barChart.is-eurSize {
+    width: var(--EUR--smallMediaWidth);
     height: 7em !important;
-    max-height: 100%;
   }
 
-  .u-currency-bgn .BarChart-bar {
-    width: var(--BGN-media-width);
+  .ChartContent-barChart.is-bgnSize {
+    width: var(--BGN--smallMediaWidth);
     height: 7em !important;
-    max-height: 100%;
   }
 
-  .u-currency-usd .BarChart-bar {
-    width: var(--USD-media-width);
+  .ChartContent-barChart.is-usdSize {
+    width: var(--USD--smallMediaWidth);
     height: 7em !important;
-    max-height: 100%;
   }
 
-  .u-currency-qar .BarChart-bar {
-    width: var(--QAR-media-width);
+  .ChartContent-barChart.is-qarSize {
+    width: var(--QAR--smallMediaWidth);
     height: 7em !important;
-    max-height: 100%;
   }
 
-  .u-currency-gel .BarChart-bar {
-    width: var(--GEL-media-width);
+  .ChartContent-barChart.is-gelSize {
+    width: var(--GEL--smallMediaWidth);
     height: 7em !important;
-    max-height: 100%;
   }
 }

@@ -8,71 +8,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Currency Visualizer</title>
+    <title>Currency Visualization</title>
 </head>
 
-<body>
-    <div class='container'>
-        <header>
-            <h1>Currency Conversions</h1>
-            <ul>
-                <li onclick='blinker(".u-currency-usd");'>$</li>
-                <li onClick='blinker(".u-currency-qar");'>&#65020;</li>
-                <li onClick='blinker(".u-currency-gel");'>&#8382;</li>
-                <li onClick='blinker(".u-currency-eur");'>&euro;</li>
-            </ul>
+<body class='Page'>
+    <div class='Page-container'>
+        <header class='Header'>
+            <h1 class='Header-title'>Currency Visualization</h1>
         </header>
-        <main>
-            <div class="BarChart">
-                <div class="BarChart-fullBar u-currency-usd">
-                    <div class="BarChart-bar" onClick="thisModal(this);" style="height: 27.41%;">
-                        <p>USD $</p>
-                        <div class='modal'>
-                            <p>US dollar</p>
-                            <p>1 USD == 1 USD</p>
-                        </div>
+        <main class='ChartContent'>
+            <div class="ChartContent-container">
+                <div class="ChartContent-barChart is-usdSize" onClick="activateModal(this);" style="height: 27.41%;">
+                    <p>USD $</p>
+                    <div class='Modal'>
+                        <p>US dollar</p>
+                        <p>1 USD == 1 USD</p>
                     </div>
                 </div>
-                <div class="BarChart-fullBar u-currency-bgn">
-                    <div class="BarChart-bar" onClick="thisModal(this);" style="height: 45.35%;">
-                        <p>BGN &#1083;&#1074;</p>
-                        <div class='modal'>
-                            <p>Bulgarian Lev</p>
-                            <p>1 USD == 1.67 BGN</p>
-                        </div>
+            </div>
+            <div class="ChartContent-container">
+                <div class="ChartContent-barChart is-bgnSize" onClick="activateModal(this);" style="height: 45.35%;">
+                    <p>BGN &#1083;&#1074;</p>
+                    <div class='Modal'>
+                        <p>Bulgarian Lev</p>
+                        <p>1 USD == 1.67 BGN</p>
                     </div>
                 </div>
-                <div class="BarChart-fullBar u-currency-qar">
-                    <div class="BarChart-bar" onClick="thisModal(this);" style="height:100%;">
-                        <p>QAR &#65020;</p>
-                        <div class='modal'>
-                            <p>Qatari Rial</p>
-                            <p>1 USD == 3.64 QAR</p>
-                        </div>
+            </div>
+            <div class="ChartContent-container">
+                <div class="ChartContent-barChart is-qarSize" onClick="activateModal(this);" style="height:100%;">
+                    <p>QAR &#65020;</p>
+                    <div class='Modal'>
+                        <p>Qatari Rial</p>
+                        <p>1 USD == 3.64 QAR</p>
                     </div>
                 </div>
-                <div class="BarChart-fullBar u-currency-eur">
-                    <div class="BarChart-bar" onClick="thisModal(this);" style="height:23.39%;">
-                        <p>EUR &euro;</p>
-                        <div class='modal'>
-                            <p>Euro</p>
-                            <p>1 USD == 0.85 EUR</p>
-                        </div>
+            </div>
+            <div class="ChartContent-container">
+                <div class="ChartContent-barChart is-eurSize" onClick="activateModal(this);" style="height:23.39%;">
+                    <p>EUR &euro;</p>
+                    <div class='Modal'>
+                        <p>Euro</p>
+                        <p>1 USD == 0.85 EUR</p>
                     </div>
                 </div>
-                <div class="BarChart-fullBar u-currency-gel">
-                    <div class="BarChart-bar " onClick="thisModal(this);" style="height:85.26%;">
-                        <p>GEL &#8382;</p>
-                        <div class='modal'>
-                            <p>Georgian Lari</p>
-                            <p>1 USD == 3.11 GEL</p>
-                        </div>
+            </div>
+            <div class="ChartContent-container">
+                <div class="ChartContent-barChart is-gelSize" onClick="activateModal(this);" style="height:85.26%;">
+                    <p>GEL &#8382;</p>
+                    <div class='Modal'>
+                        <p>Georgian Lari</p>
+                        <p>1 USD == 3.11 GEL</p>
                     </div>
                 </div>
             </div>
         </main>
-        <footer>
-            <p>&copy;&nbsp;2021&nbsp;Joachim Byrnes-Shay</p>
+        <footer class='Footer'>
+            <p class='Footer-copywrite'>&copy;&nbsp;2021&nbsp;Joachim Byrnes-Shay</p>
         </footer>
     </div>
     <script src="js/main.js">
