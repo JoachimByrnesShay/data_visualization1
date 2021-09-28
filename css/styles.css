@@ -11,7 +11,7 @@
   --QAR--smallMediaWidth: 100%;
 }
 
-main, footer, p, body, h1, h2, h3, div, header, ul, html {
+*, main, footer, p, body, h1, h2, h3, div, header, ul, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -56,7 +56,7 @@ main, footer, p, body, h1, h2, h3, div, header, ul, html {
   display: flex;
   justify-content: space-around;
   align-content: flex-end;
-  height: calc(100vh - 8em);
+  height: calc(100vh - 9em);
   border: .5em solid black;
   background: linear-gradient(to bottom, #ebf1f6 0%,#abd3ee 50%,#2ec3eb 51%,#d5ebfb 100%);
 }
@@ -91,7 +91,7 @@ main, footer, p, body, h1, h2, h3, div, header, ul, html {
 }
 
 .Footer {
-  height: 3em;
+  height: 4em;
   padding-left: .3em;
   padding-top: .6em;
   background: var(--Footer-backgroundColor);
@@ -157,45 +157,45 @@ main, footer, p, body, h1, h2, h3, div, header, ul, html {
   }
 
   .ChartContent-barChart {
-    height: 5em;
-    padding-top: 2em;
-    padding-left: .5em;
+    height: 80% !important;
+    padding-top: 7%;
+    padding-left: 5%;
     text-align: justify;
+    justify-self: flex-end;
     align-self: center;
     border-radius: 0 .3em .3em 0;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     border-right: 7px solid black;
     border-left: none;
+    font-size: 1em;
   }
 
   .Modal {
-    top: 5%;
-    left: 7em;
+    top: 0;
+    left: 10%;
+    height: 100%;
+    width: 12em;
+    padding-top: 1em;
   }
 
   .ChartContent-barChart.is-eurSize {
     width: var(--EUR--smallMediaWidth);
-    height: 7em !important;
   }
 
   .ChartContent-barChart.is-bgnSize {
     width: var(--BGN--smallMediaWidth);
-    height: 7em !important;
   }
 
   .ChartContent-barChart.is-usdSize {
     width: var(--USD--smallMediaWidth);
-    height: 7em !important;
   }
 
   .ChartContent-barChart.is-qarSize {
     width: var(--QAR--smallMediaWidth);
-    height: 7em !important;
   }
 
   .ChartContent-barChart.is-gelSize {
     width: var(--GEL--smallMediaWidth);
-    height: 7em !important;
   }
 }
