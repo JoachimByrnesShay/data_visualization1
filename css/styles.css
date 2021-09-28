@@ -158,6 +158,7 @@ html {
   margin: 0;
   padding-top: 2em;
   box-shadow: 2px 3px 1px var(--Page-boxShadowColor);
+  z-index: 50;
 }
 
 /* state of modal = display */
