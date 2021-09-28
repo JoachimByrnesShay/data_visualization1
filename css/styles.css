@@ -1,9 +1,18 @@
-:root {
+:root {/* CSS variables for element background, border, default boxShadow colors */
   --Page-backgroundColor: #cddeee;
   --Header-backgroundColor: #38598b;
   --Footer-backgroundColor: rgb(51, 66, 87);
   --ChartContent-barChart--odd-backgroundColor: #9f4b7a;
   --ChartContent-barChart--even-backgroundColor: #aeddcd;
+  --Modal-backgroundColor: #28282b;
+  --ChartContent-borderColor: black;
+  --Page-boxShadowColor: black;
+  --ChartContent-barChart-boxShadowColor: grey;
+  /* CSS variables for text colors */
+  --Page-textColor: white;
+  --Header-textColor: beige;
+  --Modal-textColor: white;
+  /* CSS variables to swap barChart height for width on small media */
   --EUR--smallMediaWidth: 23.39%;
   --USD--smallMediaWidth: 27.41%;
   --BGN--smallMediaWidth: 45.35%;
@@ -11,22 +20,26 @@
   --QAR--smallMediaWidth: 100%;
 }
 
-*, main, footer, p, body, h1, h2, h3, div, header, ul, html {
-  margin: 0;
-  padding: 0;
+/* set margins and padding to default 0 and set box-sizing to border-box */
+
+html {
   box-sizing: border-box;
 }
 
-/* 
- */
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* style entire body, aka .Page */
 
 .Page {
   background: var(--Page-backgroundColor);
   height: 100vh;
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  color: var(--Page-textColor);
 }
 
 .Page-container {
@@ -35,18 +48,19 @@
   height: 100%;
 }
 
+/* .Header as flex-box to be future-proof for next iterations */
+
 .Header {
   height: 5em;
   background: var(--Header-backgroundColor);
   display: flex;
   justify-content: space-between;
-  padding-right: 0em;
 }
 
 .Header-title {
   font-weight: 400;
   font-size: 26px;
-  color: beige;
+  color: var(--Header-textColor);
   text-transform: uppercase;
   align-self: center;
   padding-left: .5em;
@@ -56,8 +70,12 @@
   display: flex;
   justify-content: space-around;
   align-content: flex-end;
+  /* height of header + footer = 9em */
   height: calc(100vh - 9em);
-  border: .5em solid black;
+  border: .5em solid var(--ChartContent-borderColor);
+  /* a plain fallback setting for browser versions with no linear-gradient */
+  background: #ebf5f9;
+  /* intended background for .CharContent */
   background: linear-gradient(to bottom, #ebf1f6 0%,#abd3ee 50%,#2ec3eb 51%,#d5ebfb 100%);
 }
 
@@ -68,17 +86,16 @@
 }
 
 .ChartContent-barChart {
-  color: white;
   padding-top: .4em;
   font-weight: 800;
   width: 7em;
   text-align: center;
   align-self: flex-end;
   border-radius: .5em .5em 0 0;
-  border-top: 9px solid black;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  box-shadow: 5px 1px 5px grey;
+  border-color: var(--ChartContent-borderColor);
+  border-style: solid;
+  border-width: 9px 2px 0px 2px;
+  box-shadow: 5px 1px 5px var(--ChartContent-barChart-boxShadowColor);
 }
 
 .ChartContent-container:nth-of-type(even) .ChartContent-barChart {
@@ -92,34 +109,44 @@
 
 .Footer {
   height: 4em;
-  padding-left: .3em;
-  padding-top: .6em;
+  padding-left: .5em;
   background: var(--Footer-backgroundColor);
-  color: white;
+  display: flex;
 }
+
+.Footer-copywrite {
+  align-self: center;
+}
+
+/* rotate modal while shrinking it and throwing a small shadow */
 
 @keyframes disappearModal {
   0% {
-    background: #28282b;
     box-shadow: 5px 5px 5px grey;
   }
 
   100% {
     transform: rotate(380deg);
-    height: 4%;
-    width: 7%;
+    height: 7%;
+    width: 4%;
+    font-size: 3px;
     box-shadow: 15px 15px 15px black;
   }
 }
+
+/* when modal activated on chart click, activate animation when mouseoff chart */
 
 .ChartContent-barChart:not(:hover) .Modal {
   animation: disappearModal 800ms normal forwards;
   animation-iteration-count: 1;
 }
 
+/* custom modal instead of alert box, one modal absolute positioned per each ChartContent-container */
+
 .Modal {
+  color: var(--Modal-textColor);
   display: none;
-  background-color: #28282b;
+  background-color: var(--Modal-backgroundColor);
   border-radius: .6em;
   position: absolute;
   left: -50%;
@@ -128,24 +155,18 @@
   height: 140px;
   padding: 6px 0 8px;
   text-align: center;
-  z-index: 50;
   margin: 0;
-  overflow-x: hidden;
-  color: black;
-  color: white;
   padding-top: 2em;
-  box-shadow: 2px 3px 1px black;
+  box-shadow: 2px 3px 1px var(--Page-boxShadowColor);
 }
+
+/* state of modal = display */
 
 .Modal.is-displayed {
   display: block;
 }
 
-@media only screen and (max-width:  950px) {
-  html {
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
+@media only screen and (max-width:  950px) {/* change orientetion of .ChartContent flex items on smaller screens, i.e. vertical to horizontal barCharts */
 
   .ChartContent {
     flex-direction: column;
@@ -156,19 +177,16 @@
     width: 100%;
   }
 
-  .ChartContent-barChart {
+  .ChartContent-barChart {/*.ChartContent-barCharts have inline styling of height, hardcoded data for defaut vertical charts, use important to change this in css stylesheet */
     height: 70% !important;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 7%;
+    padding-bottom: 7%;
     padding-left: 5%;
     text-align: justify;
     justify-self: flex-end;
     align-self: center;
     border-radius: 0 .3em .3em 0;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    border-right: 7px solid black;
-    border-left: none;
+    border-width: 2px 7px 2px 0px;
     font-size: 95%;
   }
 
@@ -177,8 +195,8 @@
     left: 10%;
     height: 100%;
     width: 12em;
-    padding-top: 1em;
-  }
+    padding-top: 2em;
+  }/* set width of barCharts to original height, i.e. for switch from vertical to horizontal charts */
 
   .ChartContent-barChart.is-eurSize {
     width: var(--EUR--smallMediaWidth);
@@ -198,5 +216,31 @@
 
   .ChartContent-barChart.is-gelSize {
     width: var(--GEL--smallMediaWidth);
+  }
+}
+
+/* acceptable responsiveness for extremely small screen devices */
+
+@media only screen and (max-width:  320px) {
+  .ChartContent-barChart {
+    height: 100% !important;
+    align-items: center;
+    font-size: .9em;
+    padding-top: 9%;
+    padding-bottom: 5%;
+  }
+
+  .Footer, .Header-title {
+    font-size: 70%;
+  }
+}
+
+@media only screen and (max-width:  240px) {
+  .ChartContent-barChart {
+    height: 100% !important;
+    align-items: center;
+    font-size: .5em;
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 }

@@ -17,6 +17,7 @@
             <h1 class='Header-title'>Currency Visualization</h1>
         </header>
         <main class='ChartContent'>
+            <!-- ChartContent-container on each ChartContent-barChart for absolutely positioning custom modal relative to this container -->
             <div class="ChartContent-container">
                 <div class="ChartContent-barChart is-usdSize" onClick="activateModal(this);" style="height: 27.41%;">
                     <p>USD $</p>
@@ -67,6 +68,7 @@
             <p class='Footer-copywrite'>&copy;&nbsp;2021&nbsp;Joachim Byrnes-Shay</p>
         </footer>
     </div>
+    <!-- modal activation controlled in js called via above onClick events -->
     <script src="js/main.js">
     </script>
 </body>
