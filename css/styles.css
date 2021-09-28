@@ -8,11 +8,11 @@
   --ChartContent-borderColor: black;
   --Page-boxShadowColor: black;
   --ChartContent-barChart-boxShadowColor: grey;
-  /* CSS variables for text colors */
+  /* for text colors */
   --Page-textColor: white;
   --Header-textColor: beige;
   --Modal-textColor: white;
-  /* CSS variables to swap barChart height for width on small media */
+  /* values used for swapping barChart height for width on small media */
   --EUR--smallMediaWidth: 23.39%;
   --USD--smallMediaWidth: 27.41%;
   --BGN--smallMediaWidth: 45.35%;
@@ -125,7 +125,7 @@ html {
   }
 }
 
-/* when modal activated on chart click, activate animation when mouseoff chart */
+/* when modal activated on barchart click, activate 'disappearing modal' animation when user mouseoff barchart */
 
 .ChartContent-barChart:not(:hover) .Modal {
   animation: disappearModal 800ms normal forwards;
@@ -191,7 +191,7 @@ html {
     border-radius: 0 .3em .3em 0;
     border-width: 2px 7px 2px 0px;
     font-size: 95%;
-  }
+  }/*modal is absolutely positioned to ChartContent-container, whose height and width have been changed on small screens*/
 
   .Modal {
     top: 0;
@@ -241,10 +241,7 @@ html {
 
 @media only screen and (max-width:  240px) {
   .ChartContent-barChart {
-    height: 100% !important;
-    align-items: center;
     font-size: .5em;
     padding-top: 5%;
-    padding-bottom: 5%;
   }
 }

@@ -10,7 +10,7 @@ function activateModal(elem) {
         modal.classList.remove('is-displayed');
     });
 
-    /* smoothen user experience when user moves cursor back to bar too quickly (before animation finishes) after triggering animation by mousing off*/
+    /* smoothen user experience when animation is not finished and user moves cursor back to bar too quickly (mousing back on too quickly after mousing off after click)*/
     modal.addEventListener('animationcancel', () => {
         modal.classList.remove('is-displayed');
     });
