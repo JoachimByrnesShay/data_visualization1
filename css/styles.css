@@ -86,16 +86,19 @@ html {
 }
 
 .ChartContent-barChart {
-  padding-top: .4em;
   font-weight: 800;
   width: 7em;
-  text-align: center;
   align-self: flex-end;
   border-radius: .5em .5em 0 0;
   border-color: var(--ChartContent-borderColor);
   border-style: solid;
   border-width: 9px 2px 0px 2px;
   box-shadow: 5px 1px 5px var(--ChartContent-barChart-boxShadowColor);
+  /* barChart also a flex container, for controlling the positioning of its text */
+  display: flex;
+  padding-top: 5%;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 /* alternate background on barCharts from light background dark text to dark background light text */
@@ -144,18 +147,18 @@ html {
   top: 12em;
   width: 220px;
   height: 140px;
-  padding: 6px 0 8px;
-  text-align: center;
   margin: 0;
-  padding-top: 2em;
   box-shadow: 2px 3px 1px var(--Page-boxShadowColor);
   z-index: 50;
 }
 
 /* state of modal = display */
 
-.Modal.is-displayed {
-  display: block;
+.Modal.is-displayed {/* make modal visible, and use flex to keep text centered consistently across screenwidth changes*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Footer {
@@ -182,15 +185,15 @@ html {
 
   .ChartContent-barChart {/* since ChartContent-barCharts have INLINE hardcoded styling of height in html for default vertical charts, use !important to change height for this class in css stylesheet */
     height: 70% !important;
-    padding-top: 7%;
-    padding-bottom: 7%;
-    padding-left: 5%;
-    text-align: justify;
     justify-self: flex-end;
     align-self: center;
     border-radius: 0 .3em .3em 0;
     border-width: 2px 7px 2px 0px;
     font-size: 95%;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: .5em;
+    padding-top: 0;
   }/*modal is absolutely positioned to ChartContent-container, whose height and width have been changed on small screens*/
 
   .Modal {
@@ -198,7 +201,7 @@ html {
     left: 10%;
     height: 100%;
     width: 12em;
-    padding-top: 2em;
+    align-items: center;
   }/*
    set width of barCharts to height (the originally hardcoded inline value), i.e. for switch from vertical to horizontal charts */
 
