@@ -1,4 +1,4 @@
-:root {/* CSS variables for element background, border, default boxShadow colors */
+:root {/*CSS variables for element background, border, default boxShadow colors */
   --Page-backgroundColor: #cddeee;
   --Header-backgroundColor: #38598b;
   --Footer-backgroundColor: rgb(51, 66, 87);
@@ -98,6 +98,8 @@ html {
   box-shadow: 5px 1px 5px var(--ChartContent-barChart-boxShadowColor);
 }
 
+/* alternate background on barCharts from light background dark text to dark background light text */
+
 .ChartContent-container:nth-of-type(even) .ChartContent-barChart {
   background: var(--ChartContent-barChart--even-backgroundColor);
   color: black;
@@ -105,17 +107,6 @@ html {
 
 .ChartContent-container:nth-of-type(odd) .ChartContent-barChart {
   background: var(--ChartContent-barChart--odd-backgroundColor);
-}
-
-.Footer {
-  height: 4em;
-  padding-left: .5em;
-  background: var(--Footer-backgroundColor);
-  display: flex;
-}
-
-.Footer-copywrite {
-  align-self: center;
 }
 
 /* rotate modal while shrinking it and throwing a small shadow */
@@ -167,6 +158,17 @@ html {
   display: block;
 }
 
+.Footer {
+  height: 4em;
+  padding-left: .5em;
+  background: var(--Footer-backgroundColor);
+  display: flex;
+}
+
+.Footer-copywrite {
+  align-self: center;
+}
+
 @media only screen and (max-width:  950px) {/* change orientetion of .ChartContent flex items on smaller screens, i.e. vertical to horizontal barCharts */
 
   .ChartContent {
@@ -178,7 +180,7 @@ html {
     width: 100%;
   }
 
-  .ChartContent-barChart {/*.ChartContent-barCharts have inline styling of height, hardcoded data for defaut vertical charts, use important to change this in css stylesheet */
+  .ChartContent-barChart {/* since ChartContent-barCharts have INLINE hardcoded styling of height in html for default vertical charts, use !important to change height for this class in css stylesheet */
     height: 70% !important;
     padding-top: 7%;
     padding-bottom: 7%;
@@ -197,7 +199,8 @@ html {
     height: 100%;
     width: 12em;
     padding-top: 2em;
-  }/* set width of barCharts to original height, i.e. for switch from vertical to horizontal charts */
+  }/*
+   set width of barCharts to height (the originally hardcoded inline value), i.e. for switch from vertical to horizontal charts */
 
   .ChartContent-barChart.is-eurSize {
     width: var(--EUR--smallMediaWidth);
@@ -220,7 +223,7 @@ html {
   }
 }
 
-/* acceptable responsiveness for extremely small screen devices */
+/* make acceptably responsive for extremely small-width screen devices */
 
 @media only screen and (max-width:  320px) {
   .ChartContent-barChart {

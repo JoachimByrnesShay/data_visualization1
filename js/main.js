@@ -1,6 +1,6 @@
 /** show modal, call via onClick in html **/
 function activateModal(elem) {
-    /* elem is the ChartContent-barChart element which has been clicked, select its modal only */
+    /* select the modal within the ChartContent-barChart element (elem, passed as 'this') which has been clicked */
     let modal = elem.querySelector('.Modal');
 
     modal.classList.add('is-displayed');
@@ -9,8 +9,8 @@ function activateModal(elem) {
     modal.addEventListener("animationend", () => {
         modal.classList.remove('is-displayed');
     });
-    /** smoothens user experience if user moves cursor back to bar too quickly, without this- after modal animation starts, 
-     * if user moves cursor back to chart, modal will pop up again because of this class remaining on the element*/
+
+    /* smoothen user experience when user moves cursor back to bar too quickly (before animation finishes) after triggering animation by mousing off*/
     modal.addEventListener('animationcancel', () => {
         modal.classList.remove('is-displayed');
     });
